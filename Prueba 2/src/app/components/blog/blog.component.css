@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.article {
+    width: 23vw;
+    height: 23vw;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.article-content{
+    height: fit-content;
+    max-height: 15vh;
+    background-color: rgba(155,155,155,0.5);
+    padding: 10px;
+}
+
+.article-content h3,p {
+    margin: 5px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+.author-info{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: fit-content;
+}
+
+.author-info img {
+    margin: 10px;
+}

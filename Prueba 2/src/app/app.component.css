@@ -1,0 +1,13 @@
+.container {
+    width: 99vw;
+    height: auto;
+    min-height: 99vh;
+}
+
+.tema--claro{
+    background-color: yellow;
+}
+
+.tema--oscuro{
+    background-color: black;
+}

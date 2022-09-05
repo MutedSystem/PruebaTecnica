@@ -1,0 +1,26 @@
+.container {
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-bottom: 5vh;
+    padding: 10px;
+    background-color: rgb(20,20,20);
+    color: wheat;
+}
+
+.container h1{
+    justify-self: center;
+    align-self: center;
+    margin: 20px;
+}
+
+.container button {
+    justify-self:flex-start;
+    align-self: flex-end;
+    border: none;
+    background: none;
+    width: 10vw;
+    padding: 5px;
+    color: wheat;
+}

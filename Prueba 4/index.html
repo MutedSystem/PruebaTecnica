@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function getMovieTitles(movie) {
+
+            return new Promise((resolve, reject) => {
+                let titles = [];
+
+                fetch(['https://jsonmock.hackerrank.com/api/moviesdata/search/?Title=' + movie], {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).catch((error) => {
+                    console.error(error)
+                    reject()
+                })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        Array.from(result.data).forEach(element => {
+                            titles.push(element.Title)
+                        });
+                        if (result.total_pages > 1) {
+                            let promises = []
+                            for (let i = 2; i <= result.total_pages; i++) {
+                                promises.push(
+                                    fetch('https://jsonmock.hackerrank.com/api/moviesdata/search/?Title=' + movie + '&page=' + i).then((response) => response.json())
+                                )
+                            }
+                            Promise.all(promises)
+                                .then((result) => {
+                                    result.forEach((_result) => {
+                                        _result.data.forEach(element => {
+                                            titles.push(element.Title)
+                                        })
+                                    })
+                                    let sortedTitles = titles.sort()
+
+                                    resolve(sortedTitles)
+                                })
+                                .catch((error) => {
+                                    reject()
+                                })
+
+
+                        } else {
+                            
+                            console.log(titles);
+                            let sortedTitles = titles.sort()
+
+
+                            resolve(sortedTitles)
+                        }
+                    })
+            })
+
+
+        }
+
+        getMovieTitles('spider')
+            .catch((error) => {
+                console.error(error);
+            })
+            .then((resolve) => {
+                console.log(resolve);
+            })
+
+
+    </script>
+</body>
+
+</html>

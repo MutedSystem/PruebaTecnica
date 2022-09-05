@@ -1,0 +1,4 @@
+<div ngClass="container tema--{{tema}}">
+    <app-theme-switcher (cambiarTemaEvent)="cambiarTemaGlobal($event)"></app-theme-switcher>
+    <app-blog [tema]="tema"></app-blog>
+</div>

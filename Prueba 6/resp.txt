@@ -1,0 +1,1 @@
+3 y 4 son correctas debido a que no es posible acceder a pseudoclases y pseudoselectores desde css en linea

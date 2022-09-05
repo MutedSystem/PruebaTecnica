@@ -1,0 +1,17 @@
+<div ngClass="container">
+    <article *ngFor="let blog of info;let indice=index" [ngStyle]="{'background-image': 'url(' + blog.image + ')'}" ngClass="article" id="blog-item-{{indice}}">
+        <div ngClass="article-content">
+            <p id="blog-title">{{blog.title}}</p>
+            <div class="info-container">
+                <div class="author-info">
+                    <img src="{{blog.avatar}}" alt="" ngClass="avatar"/>
+                    <div>
+                        <p>{{blog.author}}</p>
+                        <p>{{blog.category}}</p>
+                    </div>
+                </div>
+                <p>{{blog.date}}</p>
+            </div>
+        </div>
+    </article>
+</div>
